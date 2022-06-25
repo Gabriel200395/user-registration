@@ -1,6 +1,44 @@
-.pages-home {
-  width: 400px;
-  margin: 0 auto;
-  font-size: 30px;
-  margin-top: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pag-home {
+  display: grid;
+  grid-template:
+    "sidenav nav nav" 70px
+    "sidenav content content" 82vh
+    "sidenav footer footer" 43px / 200px 1fr;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: rgb(58, 40, 40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidenav ul {
+  list-style: none;
+}
+
+.sidenav li {
+  color: #fff;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: #fff;
+}
+
+.content {
+  grid-area: content;
+  background-color: rgb(235, 227, 227);
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #fff;
 }
