@@ -1,0 +1,35 @@
+.sidenav {
+    grid-area: sidenav;
+    background-color: rgb(58, 40, 40);
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  
+  .sidenav ul {
+    list-style: none;
+  }
+  
+  .sidenav li {
+    color: #f2f2f2;
+    font-size: 13px;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidenav h2 {
+    color: #fff;
+    font-size: 14;
+    margin-bottom: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+  }
+  
+  .sidenav li i {
+    margin-right: 4px;
+    font-size: 15px;
+  }
