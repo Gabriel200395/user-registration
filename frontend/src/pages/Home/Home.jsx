@@ -8,13 +8,22 @@ const PagesHome = () => {
     <div className="pag-home">
       <div className="nav">nav</div>
       <div className="sidenav">
-        <ul>
-           <li>home</li> 
-           <li>cadastrar usuario</li> 
-           <li>usuarios</li> 
+        <h2>Admin</h2>
 
+        <ul>
+          <li className="list">
+            <i className="fas fa-home" />
+            <p>Inicio</p>
+          </li>
+          <li className="list">
+            <i className="fas fa-folder-plus" />
+            <p>Cadastrar usuário</p>
+          </li>
+          <li className="list">
+            <i className="fas fa-user" />
+            <p>Usuários</p>
+          </li>
         </ul>
-      
       </div>
       <div className="content">content</div>
       <div className="footer">foooter</div>
