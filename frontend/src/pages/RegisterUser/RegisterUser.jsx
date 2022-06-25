@@ -2,19 +2,18 @@ import React from "react";
 import Navbar from "components/Navbar/Navbar";
 import Sidenav from "components/Sidenav/Sidenav";
 import Content from "components/Content/Content";
-import SearchUser from "components/SearchUser/SearchUser";
 
-
-const PagesHome = () => {
+const RegisterUser = () => {
+ 
   return (
     <div className="pag-home">
       <Navbar />
-      <Sidenav />
+      <Sidenav  />
       <Content>
-        <SearchUser />
+        <p>cadastro</p>
       </Content>
     </div>
   );
 };
 
-export default PagesHome;
+export default RegisterUser;
