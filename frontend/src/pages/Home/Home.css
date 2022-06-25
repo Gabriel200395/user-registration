@@ -8,8 +8,8 @@
   display: grid;
   grid-template:
     "sidenav nav nav" 70px
-    "sidenav content content" 82vh
-    "sidenav footer footer" 43px / 200px 1fr;
+    "sidenav content content" 100vh
+    "sidenav content content" 43px / 200px 1fr;
 }
 
 /*sidenav*/
@@ -89,27 +89,87 @@
 .content {
   grid-area: content;
   background-color: #eedfdf;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-.footer {
-  grid-area: footer;
+.content .container {
+  max-width: 1140px;
+  width: 100%;
+  height: 500px;
   background-color: #fff;
-  display: flex; 
-  justify-content: flex-end; 
+  border-radius: 3px;
   align-items: center;
-  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
 }
 
+.content .container-user {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: solid 1px #eedfdf;
+}
 
-.footer p {
-  font-size: 12px;
+.content .container-user p {
+  font-size: 14px;
+  color: rgb(58, 40, 40);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.container .container-user .container-buttons {
+  display: flex;
+}
+
+.content .container-user button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: rgb(58, 40, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.content .container input {
+  height: 40px;
+  width: 605px;
+  border: solid 1px #eedfdf;
+  padding-left: 10px;
+  border-radius: 5px;
+  position: absolute;
+  outline: none;
+}
+
+.content .container .search i {
+  position: absolute;
+  right: 10px; 
+  top: 13px;
+  font-size: 20px;
+  color: rgb(58, 40, 40);
+
+}
+
+.content .container input::placeholder {
+  color: #c5b8b8;
+  font-size: 15px;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  color: rgb(58, 40, 40);
-  margin-top: 5px; 
 } 
 
-.footer  i{
-  color: red;
-  font-size: 10px;
+
+.content  .container .search {
+  position: relative;
+  width: 605px;
+  height: 40px;
+  margin-bottom: 40px;
 }
