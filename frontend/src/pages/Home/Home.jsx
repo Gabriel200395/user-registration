@@ -32,7 +32,11 @@ const PagesHome = () => {
         </ul>
       </div>
       <div className="content">content</div>
-      <div className="footer">foooter</div>
+      <div className="footer">
+        <p>
+          Desenvolvido com <i class="fas fa-heart"/> por Gabriel Souza.
+        </p>
+      </div>
     </div>
   );
 };

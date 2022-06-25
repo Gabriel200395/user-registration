@@ -77,16 +77,14 @@
   margin-top: 5px;
 }
 
-
-.nav .logo{
+.nav .logo {
   display: flex;
-  align-items: center; 
-}
- 
-.nav .logo i{
- font-size: 20px; 
+  align-items: center;
 }
 
+.nav .logo i {
+  font-size: 20px;
+}
 
 .content {
   grid-area: content;
@@ -96,4 +94,22 @@
 .footer {
   grid-area: footer;
   background-color: #fff;
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center;
+  padding-right: 20px;
+}
+
+
+.footer p {
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: rgb(58, 40, 40);
+  margin-top: 5px; 
+} 
+
+.footer  i{
+  color: red;
+  font-size: 10px;
 }
