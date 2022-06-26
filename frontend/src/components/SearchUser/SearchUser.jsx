@@ -5,7 +5,9 @@ import "./styles.css";
 function SearchUser() {
   const history = useHistory();
 
-  const edit = () => history.push("/editar-usuario");
+  const edit = () => history.push("/editar-usuario"); 
+  const userProfile = () => history.push("/perfil-do-usuario"); 
+  
 
   return (
     <div className="search-container">
@@ -23,7 +25,7 @@ function SearchUser() {
           <button onClick={edit}>
             <i class="fas fa-edit"></i>
           </button>
-          <button>
+          <button onClick={userProfile}>
             <i className="fas fa-user" />
           </button>
         </div>

@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import Login from "./Login/Login";
 import RegisterUser from "./RegisterUser/RegisterUser";
 import EditUser from "./EditUser/EditUser";
+import UserProfile from "./UserProfile/UserProfile";
 
 const PagesRoot = () => (
   <Router>
@@ -14,7 +15,8 @@ const PagesRoot = () => (
         <Route path="/login" component={Login} />
         <RoutesPrivate path="/cadastrar-usuario" component={RegisterUser} />
         <RoutesPrivate path="/usuarios" component={Home} />
-        <RoutesPrivate path="/editar-usuario" component={EditUser} />
+        <RoutesPrivate path="/editar-usuario" component={EditUser} /> 
+        <RoutesPrivate path="/perfil-do-usuario" component={UserProfile} />
       </Switch>
     </StoreProvider>
   </Router>
