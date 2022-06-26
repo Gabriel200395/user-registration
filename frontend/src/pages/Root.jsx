@@ -15,7 +15,7 @@ const PagesRoot = () => (
     <StoreProvider>
       <Switch>
         <Route path="/login" component={Login} /> 
-        <RoutesPrivate path="/cadastrar-usuario" component={RegisterUser} />
+        <Route path="/cadastrar-usuario" component={RegisterUser} />
         <RoutesPrivate path="/" component={Home} />
       </Switch>
     </StoreProvider>

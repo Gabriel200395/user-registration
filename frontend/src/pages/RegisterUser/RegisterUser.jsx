@@ -2,18 +2,8 @@ import React from "react";
 import Navbar from "components/Navbar/Navbar";
 import Sidenav from "components/Sidenav/Sidenav";
 import Content from "components/Content/Content";
+import FormRegisterUser from "components/FormRegisterUser/FormRegister";
 
-const RegisterUser = () => {
- 
-  return (
-    <div className="pag-home">
-      <Navbar />
-      <Sidenav  />
-      <Content>
-        <p>cadastro</p>
-      </Content>
-    </div>
-  );
-};
+const RegisterUser = () => <FormRegisterUser />;
 
 export default RegisterUser;
