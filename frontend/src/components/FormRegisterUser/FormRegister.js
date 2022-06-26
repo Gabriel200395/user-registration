@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 function FormRegisterUser() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="page-form">
       <div className="container-form">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h2>Seus Dados</h2>
 
           <div className="group-input">
@@ -26,11 +31,11 @@ function FormRegisterUser() {
           <div className="group-input">
             <div className="container-input">
               <label>Telefone</label>
-              <input placeholder="Gabriel Souza" className="input-medium" />
+              <input placeholder="3457-8907" className="input-medium" />
             </div>
             <div className="container-input">
               <label>Celular</label>
-              <input placeholder="20/03/1995" className="input-medium" />
+              <input placeholder="(61) 99458-9078" className="input-medium" />
             </div>
           </div>
 
@@ -39,11 +44,11 @@ function FormRegisterUser() {
           <div className="group-input">
             <div className="container-input">
               <label>Cep</label>
-              <input placeholder="00-000-00" className="input-medium" />
+              <input placeholder="72341-402" className="input-medium" />
             </div>
             <div className="container-input">
               <label>Logradouro</label>
-              <input placeholder="20/03/1995" className="input-medium" />
+              <input placeholder="QR 209 Conjunto 2" className="input-medium" />
             </div>
             <div className="container-input">
               <label>Complemente</label>
@@ -53,37 +58,27 @@ function FormRegisterUser() {
           <div className="group-input">
             <div className="container-input">
               <label>Numero</label>
-              <input placeholder="00-000-00" className="input-medium" />
+              <input placeholder="06" className="input-medium" />
             </div>
             <div className="container-input">
               <label>Bairro</label>
-              <input placeholder="20/03/1995" className="input-medium" />
+              <input placeholder="Samambaia Norte (Samambaia)" className="input-medium" />
             </div>
             <div className="container-input">
               <label>Cidade</label>
-              <input placeholder="000.000.000-88" className="input-medium" />
+              <input placeholder="Brasília" className="input-medium" />
             </div>
           </div>
 
           <div className="group-input">
             <div className="container-input">
               <label>Estado</label>
-              <input placeholder="00-000-00" className="input-medium" />
+              <input placeholder="DF" className="input-medium" />
             </div>
           </div>
 
           <div className="container-form-buttons">
-            <button className="button-come-back">Voltar</button>
-            <button className="button-save">Salvar</button>
-          </div>
-
-          <div className="container-form-buttons">
-            <button className="button-come-back">Voltar</button>
-            <button className="button-save">Salvar</button>
-          </div>
-
-          <div className="container-form-buttons">
-            <button className="button-come-back">Voltar</button>
+            <Link to="/usuarios" className="button-come-back">Voltar</Link>
             <button className="button-save">Salvar</button>
           </div>
         </form>

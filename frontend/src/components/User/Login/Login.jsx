@@ -38,7 +38,7 @@ const UserLogin = () => {
 
     if (token) {
       setToken(token);
-      return history.push('/');
+      return history.push('/usuarios');
     }
 
     setError(error);
