@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-function FormRegisterUserEdit() {
+function FormUserEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -92,4 +92,4 @@ function FormRegisterUserEdit() {
   );
 }
 
-export default FormRegisterUserEdit;
+export default FormUserEdit;

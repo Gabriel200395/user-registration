@@ -1,7 +1,12 @@
 import React from "react";
-import "./styles.css"
+import { useHistory } from "react-router-dom";
+import "./styles.css";
 
 function SearchUser() {
+  const history = useHistory();
+
+  const edit = () => history.push("/editar-usuario");
+
   return (
     <div className="search-container">
       <div className="search">
@@ -15,7 +20,7 @@ function SearchUser() {
           <button>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
-          <button>
+          <button onClick={edit}>
             <i class="fas fa-edit"></i>
           </button>
           <button>
