@@ -30,10 +30,6 @@ function Sidenav() {
             Cadastrar usuário
           </Link>
         </li>
-        <li className="list">
-          <i className="fas fa-user" />
-          <p>Usuários</p>
-        </li>
       </ul>
     </div>
   );
