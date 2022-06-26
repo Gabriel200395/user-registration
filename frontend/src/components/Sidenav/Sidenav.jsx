@@ -6,7 +6,7 @@ import "./styles.css";
 import StoreContext from "../Store/Context";
 
 function Sidenav() {
-  const { setToken, token } = useContext(StoreContext);
+  const { setToken} = useContext(StoreContext);
 
   const history = useHistory();
 
