@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import Service from "../../service/service";
 import "./styles.css";
 
@@ -21,12 +23,6 @@ function FormRegisterUser() {
   });
 
   const history = useHistory();
-
-  //000.000.000-90 ok
-  //(61) 99456-9078
-  //3456-7890 ok
-  //20/03/1995 ok
-  //72341-402
 
   const maskInputs = {
     cpf(value) {
@@ -78,15 +74,47 @@ function FormRegisterUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    /* try {
+    try {
       await Service.post("users/", user);
       history.push("/usuarios");
     } catch (error) {
       console.log("error em fazer post...");
-    } */
+    }
   };
 
-  console.log(user);
+  useEffect(() => {
+    async function cepUser() {
+      if (user.cep.replace("-", "").length === 8) {
+        const cepData = await axios.get(
+          `https://viacep.com.br/ws/${user.cep}/json`
+        );
+        const response = await cepData.data;
+        setUser({
+          ...user,
+          complemente: response?.complemente,
+          bairro: response?.bairro,
+          logradouro: response?.logradouro,
+          estado: response?.uf,
+          cidade: response?.localidade,
+          cep: user.cep,
+        });
+      }
+
+      if (user.cep === "") {
+        setUser({
+          ...user,
+          complemente: "",
+          bairro: "",
+          logradouro: "",
+          estado: "",
+          cidade: "",
+          cep: "",
+        });
+      }
+    }
+
+    cepUser();
+  }, [user.cep]);
 
   return (
     <div className="page-form">
@@ -101,7 +129,7 @@ function FormRegisterUser() {
                 name="nome"
                 placeholder="Gabriel Souza"
                 className="input-large"
-                value={user.nome}
+                value={user.nome || ""}
                 onChange={handleChange}
               />
             </div>
@@ -111,7 +139,7 @@ function FormRegisterUser() {
                 name="dataNas"
                 placeholder="20/03/1995"
                 className="input-medium"
-                value={user.dataNas}
+                value={user.dataNas || ""}
                 onChange={handleChange}
               />
             </div>
@@ -121,7 +149,7 @@ function FormRegisterUser() {
                 name="cpf"
                 placeholder="000.000.000-88"
                 className="input-medium"
-                value={user.cpf}
+                value={user.cpf || ""}
                 onChange={handleChange}
               />
             </div>
@@ -134,7 +162,7 @@ function FormRegisterUser() {
                 name="telefone"
                 placeholder="3457-8907"
                 className="input-medium"
-                value={user.telefone}
+                value={user.telefone || ""}
                 onChange={handleChange}
               />
             </div>
@@ -144,7 +172,7 @@ function FormRegisterUser() {
                 name="celular"
                 placeholder="(61) 99458-9078"
                 className="input-medium"
-                value={user.celular}
+                value={user.celular || ""}
                 onChange={handleChange}
               />
             </div>
@@ -159,7 +187,7 @@ function FormRegisterUser() {
                 name="cep"
                 placeholder="72341-402"
                 className="input-medium"
-                value={user.cep}
+                value={user.cep || ""}
                 onChange={handleChange}
               />
             </div>
@@ -169,7 +197,7 @@ function FormRegisterUser() {
                 name="logradouro"
                 placeholder="QR 209 Conjunto 2"
                 className="input-medium"
-                value={user.logradouro}
+                value={user.logradouro || ""}
                 onChange={handleChange}
               />
             </div>
@@ -179,7 +207,7 @@ function FormRegisterUser() {
                 name="complemente"
                 placeholder="000.000.000-88"
                 className="input-medium"
-                value={user.complemente}
+                value={user.complemente || ""}
                 onChange={handleChange}
               />
             </div>
@@ -191,7 +219,7 @@ function FormRegisterUser() {
                 name="numero"
                 placeholder="06"
                 className="input-medium"
-                value={user.numero}
+                value={user.numero || ""}
                 onChange={handleChange}
               />
             </div>
@@ -201,7 +229,7 @@ function FormRegisterUser() {
                 name="bairro"
                 placeholder="Samambaia Norte (Samambaia)"
                 className="input-medium"
-                value={user.bairro}
+                value={user.bairro || ""}
                 onChange={handleChange}
               />
             </div>
@@ -211,7 +239,7 @@ function FormRegisterUser() {
                 name="cidade"
                 placeholder="Brasília"
                 className="input-medium"
-                value={user.cidade}
+                value={user.cidade || ""}
                 onChange={handleChange}
               />
             </div>
@@ -224,7 +252,7 @@ function FormRegisterUser() {
                 name="estado"
                 placeholder="DF"
                 className="input-medium"
-                value={user.estado}
+                value={user.estado || ""}
                 onChange={handleChange}
               />
             </div>
