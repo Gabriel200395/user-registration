@@ -11,6 +11,8 @@ function SearchUser() {
   const [users, setUsers] = useState([]);
   const [searchusers, setSearchUsers] = useState([]);
   const [scroll, setScroll] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [indexId, setIndexId] = useState(null);
 
   useEffect(() => {
     async function req() {
@@ -49,14 +51,17 @@ function SearchUser() {
   const edit = (id) => history.push("/editar-usuario/" + id);
   const userProfile = (id) => history.push("/perfil-do-usuario/" + id);
 
-  const removeUser = async (id) => {
-    await Service.delete("users/" + id);
-    const removeIdUser = searchusers.filter((user) => user.id !== id);
+  const removeUser = (id) => {
+    setIndexId(id);
+    setUserId(id);
+  };
+
+  const remover = async () => {
+    await Service.delete("users/" + userId);
+    const removeIdUser = searchusers.filter((user) => user.id !== userId);
     setSearchUsers(removeIdUser);
     setUsers(removeIdUser);
   };
-
-  console.log(searchusers);
 
   return (
     <div className="content">
@@ -71,22 +76,43 @@ function SearchUser() {
             <i className="fas fa-search"></i>
           </div>
 
-          {searchusers.map((user) => (
-            <div className="container-user" key={user.id}>
-              <p>{user.nome}</p>
-              <div className="container-buttons">
-                <button onClick={() => removeUser(user.id)}>
-                  <i className="fa fa-trash" aria-hidden="true"></i>
-                </button>
-                <button onClick={() => edit(user.id)}>
-                  <i className="fas fa-edit"></i>
-                </button>
-                <button onClick={() => userProfile(user.id)}>
-                  <i className="fas fa-user" />
-                </button>
+          <div>
+            {searchusers.map((user) => (
+              <div className="container-user" key={user.id}>
+                <p>{user.nome}</p>
+                <div className="container-buttons">
+                  {indexId === user.id && (
+                    <div className="modal">
+                      <p>Deseja Excluir?</p>
+
+                      <div className="buttons-modal">
+                        <button className="button-action" onClick={remover}>
+                          Sim
+                        </button>
+                        <button
+                          className="button-action"
+                          onClick={() => setIndexId(null)}
+                        >
+                          Não
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  <button onClick={() => removeUser(user.id)}>
+                    <i className="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+
+                  <button onClick={() => edit(user.id)}>
+                    <i className="fas fa-edit"></i>
+                  </button>
+                  <button onClick={() => userProfile(user.id)}>
+                    <i className="fas fa-user" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

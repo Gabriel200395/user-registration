@@ -43,6 +43,32 @@
   background: #5e3f3f;
 }
 
+.modal {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+} 
+
+.modal .buttons-modal .button-action{
+  height: 30px; 
+  width: 44px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: rgb(58, 40, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.modal .buttons-modal{
+  display: flex;
+}
+
 .search-container .container-user {
   width: 600px;
   display: flex;
