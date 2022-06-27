@@ -35,6 +35,12 @@
   margin-right: 15px;
 }
 
+
+.error-input{
+  border: solid 1px red !important;
+}
+
+
 .page-form .container-form .container-input .input-medium {
   width: 200px;
 

@@ -22,6 +22,8 @@ function FormRegisterUser() {
     cidade: "",
   });
 
+  const [error, setError] = useState({});
+
   const history = useHistory();
 
   const maskInputs = {
@@ -74,12 +76,29 @@ function FormRegisterUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await Service.post("users/", user);
-      history.push("/usuarios");
-    } catch (error) {
-      console.log("error em fazer post...");
+    let error = {};
+
+    const fields = [
+      "nome",
+      "dataNas",
+      "cpf",
+      "celular",
+      "telefone",
+      "cep",
+      "complemente",
+      "logradouro",
+      "bairro",
+      "estado",
+      "numero",
+      "cidade",
+    ];
+
+    for (let u in fields) {
+      if (user[fields[u]] === "" ||  user[fields[u]] === undefined ) {
+        error[fields[u]] = fields[u];
+      }
     }
+    setError(error);
   };
 
   useEffect(() => {
@@ -100,6 +119,8 @@ function FormRegisterUser() {
         });
       }
 
+ 
+
       if (user.cep === "") {
         setUser({
           ...user,
@@ -116,6 +137,8 @@ function FormRegisterUser() {
     cepUser();
   }, [user.cep]);
 
+  console.log(error);
+
   return (
     <div className="page-form">
       <div className="container-form">
@@ -128,7 +151,7 @@ function FormRegisterUser() {
               <input
                 name="nome"
                 placeholder="Gabriel Souza"
-                className="input-large"
+                className={`input-large ${error.nome && "error-input"}`}
                 value={user.nome || ""}
                 onChange={handleChange}
               />
@@ -138,7 +161,7 @@ function FormRegisterUser() {
               <input
                 name="dataNas"
                 placeholder="20/03/1995"
-                className="input-medium"
+                className={`input-medium ${error.dataNas && "error-input"}`}
                 value={user.dataNas || ""}
                 onChange={handleChange}
               />
@@ -148,7 +171,7 @@ function FormRegisterUser() {
               <input
                 name="cpf"
                 placeholder="000.000.000-88"
-                className="input-medium"
+                className={`input-medium ${error.cpf && "error-input"}`}
                 value={user.cpf || ""}
                 onChange={handleChange}
               />
@@ -161,7 +184,7 @@ function FormRegisterUser() {
               <input
                 name="telefone"
                 placeholder="3457-8907"
-                className="input-medium"
+                className={`input-medium ${error.telefone && "error-input"}`}
                 value={user.telefone || ""}
                 onChange={handleChange}
               />
@@ -171,7 +194,7 @@ function FormRegisterUser() {
               <input
                 name="celular"
                 placeholder="(61) 99458-9078"
-                className="input-medium"
+                className={`input-medium ${error.celular && "error-input"}`}
                 value={user.celular || ""}
                 onChange={handleChange}
               />
@@ -186,7 +209,7 @@ function FormRegisterUser() {
               <input
                 name="cep"
                 placeholder="72341-402"
-                className="input-medium"
+                className={`input-medium ${error.cep && "error-input"}`}
                 value={user.cep || ""}
                 onChange={handleChange}
               />
@@ -196,7 +219,7 @@ function FormRegisterUser() {
               <input
                 name="logradouro"
                 placeholder="QR 209 Conjunto 2"
-                className="input-medium"
+                className={`input-medium ${error.logradouro && "error-input"}`}
                 value={user.logradouro || ""}
                 onChange={handleChange}
               />
@@ -206,7 +229,7 @@ function FormRegisterUser() {
               <input
                 name="complemente"
                 placeholder="000.000.000-88"
-                className="input-medium"
+                className={`input-medium ${error.complemente && "error-input"}`}
                 value={user.complemente || ""}
                 onChange={handleChange}
               />
@@ -218,7 +241,7 @@ function FormRegisterUser() {
               <input
                 name="numero"
                 placeholder="06"
-                className="input-medium"
+                className={`input-medium ${error.numero && "error-input"}`}
                 value={user.numero || ""}
                 onChange={handleChange}
               />
@@ -228,7 +251,7 @@ function FormRegisterUser() {
               <input
                 name="bairro"
                 placeholder="Samambaia Norte (Samambaia)"
-                className="input-large"
+                className={`input-large ${error.bairro && "error-input"}`}
                 value={user.bairro || ""}
                 onChange={handleChange}
               />
@@ -238,7 +261,7 @@ function FormRegisterUser() {
               <input
                 name="cidade"
                 placeholder="Brasília"
-                className="input-medium"
+                className={`input-medium ${error.cidade && "error-input"}`}
                 value={user.cidade || ""}
                 onChange={handleChange}
               />
@@ -251,7 +274,7 @@ function FormRegisterUser() {
               <input
                 name="estado"
                 placeholder="DF"
-                className="input-medium"
+                className={`input-medium ${error.estado && "error-input"}`}
                 value={user.estado || ""}
                 onChange={handleChange}
               />
