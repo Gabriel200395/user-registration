@@ -1,9 +1,7 @@
-
 {
   "users": [
     {
-      "id": 3,
-      "nome": "João Felipes",
+      "nome": "Gabriel Souza",
       "dataNas": "20/03/1995",
       "cpf": "344.567.678-67",
       "celular": "61 99456-9878",
@@ -13,25 +11,12 @@
       "logradouro": "praça do miguel",
       "bairro": "samambaia-sul",
       "estado": "DF",
-      "numero": "10"
+      "numero": "10",
+      "id": 1
     },
     {
-      "id": 3,
-      "nome": "Erica Santos",
-      "dataNas": "20/03/2000",
-      "cpf": "344.567.678-16",
-      "celular": "61 99456-9809",
-      "telefone": "3456-7878",
-      "cep": "234567-76",
-      "complemente": "casa do portão amarelo",
-      "logradouro": "praça do joão",
-      "bairro": "guára",
-      "estado": "DF",
-      "numero": "20"
-    },
-    {
-      "id": 4,
-      "nome": "João Lucas",
+      "id": 2,
+      "nome": "João Gabriel",
       "dataNas": "20/03/1995",
       "cpf": "344.567.678-67",
       "celular": "61 99456-9878",
