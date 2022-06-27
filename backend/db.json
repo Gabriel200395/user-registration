@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "nome": "Gabriel Souza de Figueredo",
+      "dataNas": "20/03/1995",
+      "cpf": "344.567.678-87",
+      "celular": "61 99456-9807",
+      "telefone": "3456-7896",
+      "cep": "234567-09",
+      "complemente": "casa do portão verde",
+      "logradouro": "praça do zé",
+      "bairro": "samambaia-norte",
+      "estado": "DF",
+      "numero": "06"
+    }
+  ]
+}
