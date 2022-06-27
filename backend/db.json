@@ -12,21 +12,8 @@
       "bairro": "samambaia-sul",
       "estado": "DF",
       "numero": "10",
-      "id": 2
-    },
-    {
-      "nome": "João Lucas",
-      "dataNas": "20/03/1995",
-      "cpf": "344.567.678-67",
-      "celular": "61 99456-9878",
-      "telefone": "3456-7889",
-      "cep": "234567-10",
-      "complemente": "casa do portão azul",
-      "logradouro": "praça do miguel",
-      "bairro": "samambaia-sul",
-      "estado": "DF",
-      "numero": "10",
-      "id": 3
+      "cidade": "Brasili-Df",
+      "id": 1
     }
   ]
 }
