@@ -26,9 +26,6 @@ function SearchUser() {
     req();
   }, []);
 
-  const edit = () => history.push("/editar-usuario");
-  const userProfile = () => history.push("/perfil-do-usuario");
-
   const handleChange = (e) => {
     const searchUser = users.filter((user) =>
       user.nome
@@ -39,6 +36,16 @@ function SearchUser() {
 
     setSearchUsers(searchUser);
     setSearch(e.target.value);
+  };
+
+  const edit = () => history.push("/editar-usuario");
+  const userProfile = () => history.push("/perfil-do-usuario"); 
+
+  const removeUser = async (id) => {
+    await Service.delete("users/" + id);
+    const removeIdUser = searchusers.filter((user) => user.id !== id);
+    setSearchUsers(removeIdUser);
+    setUsers(removeIdUser);
   };
 
   return (
@@ -56,7 +63,7 @@ function SearchUser() {
         <div className="container-user" key={user.id}>
           <p>{user.nome}</p>
           <div className="container-buttons">
-            <button>
+            <button onClick={() => removeUser(user.id)}>
               <i className="fa fa-trash" aria-hidden="true"></i>
             </button>
             <button onClick={edit}>
