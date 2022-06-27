@@ -22,20 +22,60 @@ function FormRegisterUser() {
 
   const history = useHistory();
 
+  //000.000.000-90
+  //(61) 99456-9078
+  //3456-7890
+  //20/03/1995
+  //72341-402
+
+  const maskInputs = {
+    cpf(value) {
+      return value
+        .replace(/\D/g, "")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1-$2")
+        .replace(/-\d{2}\d+/, "");
+    },
+    celular(value) {
+      return value;
+    },
+    cep(value) {
+      return value;
+    },
+    telefone(value) {
+      return value;
+    },
+    dataNas(value) {
+      return value
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "$1/$2")
+        .replace(/(\d{2})(\d)/, "$1/$2")
+        .replace(/(\d{4})(\d)/, "");
+    },
+  };
+
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({
+      ...user,
+      [e.target.name]: maskInputs[e.target.name]
+        ? maskInputs[e.target.name](e.target.value)
+        : e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
+    /* try {
       await Service.post("users/", user);
       history.push("/usuarios");
     } catch (error) {
       console.log("error em fazer post...");
-    }
+    } */
   };
+
+  console.log(user);
 
   return (
     <div className="page-form">
