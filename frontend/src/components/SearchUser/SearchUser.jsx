@@ -38,8 +38,8 @@ function SearchUser() {
     setSearch(e.target.value);
   };
 
-  const edit = () => history.push("/editar-usuario");
-  const userProfile = () => history.push("/perfil-do-usuario"); 
+  const edit = (id) => history.push("/editar-usuario/" + id);
+  const userProfile = (id) => history.push("/perfil-do-usuario/" + id); 
 
   const removeUser = async (id) => {
     await Service.delete("users/" + id);
@@ -66,10 +66,10 @@ function SearchUser() {
             <button onClick={() => removeUser(user.id)}>
               <i className="fa fa-trash" aria-hidden="true"></i>
             </button>
-            <button onClick={edit}>
+            <button onClick={() => edit(user.id)}>
               <i className="fas fa-edit"></i>
             </button>
-            <button onClick={userProfile}>
+            <button onClick={() => userProfile(user.id)}>
               <i className="fas fa-user" />
             </button>
           </div>
