@@ -139,7 +139,7 @@ function FormUserProfile() {
               <input
                 name="bairro"
                 placeholder="Samambaia Norte (Samambaia)"
-                className="input-medium"
+                className="input-large"
                 value={user.bairro}
               />
             </div>

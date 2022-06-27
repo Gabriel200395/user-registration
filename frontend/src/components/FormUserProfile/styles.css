@@ -48,7 +48,11 @@
   border: solid 1px #eedfdf;
   border-radius: 3px;
   padding-left: 10px;
-  height: 35px;
+  height: 35px; 
+  color: #5e3f3f;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 .page-form .container-form .container-input input::placeholder {
