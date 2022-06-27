@@ -30,6 +30,14 @@ function SearchUser() {
   const userProfile = () => history.push("/perfil-do-usuario");
 
   const handleChange = (e) => {
+    const searchUser = users.filter((user) =>
+      user.nome
+        .toUpperCase()
+        .toLowerCase()
+        .includes(e.target.value.toUpperCase().toLowerCase())
+    );
+
+    setSearchUsers(searchUser);
     setSearch(e.target.value);
   };
 
@@ -44,7 +52,7 @@ function SearchUser() {
         <i className="fas fa-search"></i>
       </div>
 
-      {users.map((user) => (
+      {searchusers.map((user) => (
         <div className="container-user" key={user.id}>
           <p>{user.nome}</p>
           <div className="container-buttons">
