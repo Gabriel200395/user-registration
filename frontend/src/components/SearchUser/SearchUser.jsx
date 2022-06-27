@@ -1,13 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Service from "../../service/service";
 import "./styles.css";
 
 function SearchUser() {
   const history = useHistory();
 
-  const edit = () => history.push("/editar-usuario"); 
-  const userProfile = () => history.push("/perfil-do-usuario"); 
-  
+  const edit = () => history.push("/editar-usuario");
+  const userProfile = () => history.push("/perfil-do-usuario");
+
+  useEffect(() => {
+    async function req() {
+      try {
+        const usersData = await Service("users");
+        const response = await usersData.data;
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    req();
+  }, []);
 
   return (
     <div className="search-container">
