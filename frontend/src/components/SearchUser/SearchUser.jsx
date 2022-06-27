@@ -10,6 +10,7 @@ function SearchUser() {
   const [search, setSearch] = useState("");
   const [users, setUsers] = useState([]);
   const [searchusers, setSearchUsers] = useState([]);
+  const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
     async function req() {
@@ -26,6 +27,13 @@ function SearchUser() {
     req();
   }, []);
 
+  useEffect(() => {
+    if (searchusers.length == 8 || searchusers.length > 8) {
+      console.log("caiu");
+      setScroll(true);
+    }
+  }, [searchusers]);
+
   const handleChange = (e) => {
     const searchUser = users.filter((user) =>
       user.nome
@@ -39,7 +47,7 @@ function SearchUser() {
   };
 
   const edit = (id) => history.push("/editar-usuario/" + id);
-  const userProfile = (id) => history.push("/perfil-do-usuario/" + id); 
+  const userProfile = (id) => history.push("/perfil-do-usuario/" + id);
 
   const removeUser = async (id) => {
     await Service.delete("users/" + id);
@@ -48,40 +56,40 @@ function SearchUser() {
     setUsers(removeIdUser);
   };
 
+  console.log(searchusers);
+
   return (
-
     <div className="content">
-      <div className="container">
-      <div className="search-container">
-      <div className="search">
-        <input
-          placeholder="Pesquisa por usuário...."
-          value={search}
-          onChange={handleChange}
-        />
-        <i className="fas fa-search"></i>
-      </div>
-
-      {searchusers.map((user) => (
-        <div className="container-user" key={user.id}>
-          <p>{user.nome}</p>
-          <div className="container-buttons">
-            <button onClick={() => removeUser(user.id)}>
-              <i className="fa fa-trash" aria-hidden="true"></i>
-            </button>
-            <button onClick={() => edit(user.id)}>
-              <i className="fas fa-edit"></i>
-            </button>
-            <button onClick={() => userProfile(user.id)}>
-              <i className="fas fa-user" />
-            </button>
+      <div className={scroll ? "container-scroll" : "container-hidden"}>
+        <div className="search-container">
+          <div className="search">
+            <input
+              placeholder="Pesquisa por usuário...."
+              value={search}
+              onChange={handleChange}
+            />
+            <i className="fas fa-search"></i>
           </div>
+
+          {searchusers.map((user) => (
+            <div className="container-user" key={user.id}>
+              <p>{user.nome}</p>
+              <div className="container-buttons">
+                <button onClick={() => removeUser(user.id)}>
+                  <i className="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <button onClick={() => edit(user.id)}>
+                  <i className="fas fa-edit"></i>
+                </button>
+                <button onClick={() => userProfile(user.id)}>
+                  <i className="fas fa-user" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>     
       </div>
     </div>
-    
   );
 }
 
