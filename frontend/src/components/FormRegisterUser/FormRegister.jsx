@@ -22,10 +22,10 @@ function FormRegisterUser() {
 
   const history = useHistory();
 
-  //000.000.000-90
+  //000.000.000-90 ok
   //(61) 99456-9078
-  //3456-7890
-  //20/03/1995
+  //3456-7890 ok
+  //20/03/1995 ok
   //72341-402
 
   const maskInputs = {
@@ -44,7 +44,11 @@ function FormRegisterUser() {
       return value;
     },
     telefone(value) {
-      return value;
+      return value
+        .replace(/\D/g, "")
+        .replace(/(\d{4})(\d)/, "$1-$2")
+        .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
+        .replace(/(-\d{4})(\d)/, "$1");
     },
     dataNas(value) {
       return value
