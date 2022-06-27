@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Service from "../../service/service";
@@ -6,16 +7,17 @@ import "./styles.css";
 
 function SearchUser() {
   const history = useHistory();
-
-  const edit = () => history.push("/editar-usuario");
-  const userProfile = () => history.push("/perfil-do-usuario");
+  const [search, setSearch] = useState("");
+  const [users, setUsers] = useState([]);
+  const [searchusers, setSearchUsers] = useState([]);
 
   useEffect(() => {
     async function req() {
       try {
         const usersData = await Service("users");
         const response = await usersData.data;
-        console.log(response);
+        setSearchUsers(response);
+        setUsers(response);
       } catch (error) {
         console.log(error);
       }
@@ -24,55 +26,40 @@ function SearchUser() {
     req();
   }, []);
 
+  const edit = () => history.push("/editar-usuario");
+  const userProfile = () => history.push("/perfil-do-usuario");
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="search-container">
       <div className="search">
-        <input placeholder="Pesquisa por usuário...." />
-        <i class="fas fa-search"></i>
+        <input
+          placeholder="Pesquisa por usuário...."
+          value={search}
+          onChange={handleChange}
+        />
+        <i className="fas fa-search"></i>
       </div>
 
-      <div className="container-user">
-        <p>Gabriel Souza de Figueredo </p>
-        <div className="container-buttons">
-          <button>
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-          <button onClick={edit}>
-            <i class="fas fa-edit"></i>
-          </button>
-          <button onClick={userProfile}>
-            <i className="fas fa-user" />
-          </button>
+      {users.map((user) => (
+        <div className="container-user" key={user.id}>
+          <p>{user.nome}</p>
+          <div className="container-buttons">
+            <button>
+              <i className="fa fa-trash" aria-hidden="true"></i>
+            </button>
+            <button onClick={edit}>
+              <i className="fas fa-edit"></i>
+            </button>
+            <button onClick={userProfile}>
+              <i className="fas fa-user" />
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="container-user">
-        <p>Erica Santos </p>
-        <div className="container-buttons">
-          <button>
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-          <button>
-            <i class="fas fa-edit"></i>
-          </button>
-          <button>
-            <i className="fas fa-user" />
-          </button>
-        </div>
-      </div>
-      <div className="container-user">
-        <p>João Felipe </p>
-        <div className="container-buttons">
-          <button>
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-          <button>
-            <i class="fas fa-edit"></i>
-          </button>
-          <button>
-            <i className="fas fa-user" />
-          </button>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
