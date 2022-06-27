@@ -49,7 +49,10 @@ function SearchUser() {
   };
 
   return (
-    <div className="search-container">
+
+    <div className="content">
+      <div className="container">
+      <div className="search-container">
       <div className="search">
         <input
           placeholder="Pesquisa por usuário...."
@@ -75,7 +78,10 @@ function SearchUser() {
           </div>
         </div>
       ))}
+    </div>     
+      </div>
     </div>
+    
   );
 }
 
