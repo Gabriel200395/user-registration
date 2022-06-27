@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import StoreProvider from "components/Store/Provider";
+import StoreProvider from "../Store/Provider";
 import RoutesPrivate from "../Routes/Private/Private";
 import Home from "./Home/Home";
 import Login from "./Login/Login";

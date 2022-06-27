@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import "./styles.css";
 
-import StoreContext from "../Store/Context";
+import StoreContext from "../../Store/Context";
 
 function Sidenav() {
   const { setToken} = useContext(StoreContext);
