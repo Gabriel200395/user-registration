@@ -36,6 +36,53 @@ const maskInputs = {
   },
 };
 
+
+
+const validations = {
+  cep(value) {
+    if (value.replace(/[-]/g, "").length !== 8) {
+      return {
+        error: "cep invalido",
+      };
+    }
+  },
+  cpf(value) {
+    if (value.replace(/[.-]/g, "").length !== 11) {
+      return {
+        error: "cpf invalido",
+      };
+    }
+  },
+  celular(value) {
+    if (value.replace(/[\(\s-\)]/g, "").length !== 11) {
+      return {
+        error: "error celular",
+      };
+    }
+  },
+  telefone(value) {
+    if (
+      value.replace(/[-]/g, "").length !== 8 &&
+      value.replace(/[-]/g, "").length !== 9
+    ) {
+      return {
+        error: "error celular",
+      };
+    }
+  },
+  dataNas(value) {
+    if (
+      value.replace(/[\/]/g, "").length !== 6 &&
+      value.replace(/[\/]/g, "").length !== 8
+    ) {
+      return {
+        error: "error dataNas",
+      };
+    }
+  },
+};
+
+
 const fields = [
   "nome",
   "dataNas",
@@ -51,4 +98,4 @@ const fields = [
   "cidade",
 ];
 
-export { fields, maskInputs };
+export { fields, maskInputs, validations };

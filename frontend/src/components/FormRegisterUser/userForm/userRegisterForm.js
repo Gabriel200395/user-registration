@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Service from "../../../service/service";
-import { fields, maskInputs } from "../../../utils/ObjFields";
+import { fields, maskInputs, validations } from "../../../utils/ObjFields";
 
 function UserRegisterForm() {
   const [user, setUser] = useState({
@@ -76,50 +76,6 @@ function UserRegisterForm() {
         error[fields[u]] = fields[u];
       }
     }
-
-    const validations = {
-      cep(value) {
-        if (value.replace(/[-]/g, "").length !== 8) {
-          return {
-            error: "cep invalido",
-          };
-        }
-      },
-      cpf(value) {
-        if (value.replace(/[.-]/g, "").length !== 11) {
-          return {
-            error: "cpf invalido",
-          };
-        }
-      },
-      celular(value) {
-        if (value.replace(/[\(\s-\)]/g, "").length !== 11) {
-          return {
-            error: "error celular",
-          };
-        }
-      },
-      telefone(value) {
-        if (
-          value.replace(/[-]/g, "").length !== 8 &&
-          value.replace(/[-]/g, "").length !== 9
-        ) {
-          return {
-            error: "error celular",
-          };
-        }
-      },
-      dataNas(value) {
-        if (
-          value.replace(/[\/]/g, "").length !== 6 &&
-          value.replace(/[\/]/g, "").length !== 8
-        ) {
-          return {
-            error: "error dataNas",
-          };
-        }
-      },
-    };
 
     for(let i in fields){
       if(validations[fields[i]]){
