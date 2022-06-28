@@ -5,7 +5,7 @@
 - Entrar na pasta do projeto: `cd frontend`
 - Iniciar a aplicação: `yarn start`
 - baixe na aplicação:  `yarn install` 
-- Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3000](http://localhost:3000login/)).
+- Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3000\login](http://localhost:3000\login)).
 
 
 ## 💻 Backend
