@@ -1,8 +1,5 @@
 import { createContext } from 'react';
 
-const StoreContext = createContext({
-  token: null,
-  setToken: () => {},
-});
+const StoreContext = createContext();
 
 export default StoreContext;
