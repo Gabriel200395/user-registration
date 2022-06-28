@@ -37,8 +37,18 @@
 
 
 .error-input{
-  border: solid 1px red !important;
+  border: solid 2px #5e3f3f !important;
 }
+
+
+.field-match{
+  margin-right: 50px;
+  color: #5e3f3f;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
 
 
 .page-form .container-form .container-input .input-medium {

@@ -5,143 +5,24 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Service from "../../service/service";
 import "./styles.css";
+import useForm from "./userForm/UserRegisterForm.jsx"
 
 function FormRegisterUser() {
-  const [user, setUser] = useState({
-    nome: "",
-    dataNas: "",
-    cpf: "",
-    celular: "",
-    telefone: "",
-    cep: "",
-    complemente: "",
-    logradouro: "",
-    bairro: "",
-    estado: "",
-    numero: "",
-    cidade: "",
-  });
 
-  const [error, setError] = useState({});
-
-  const history = useHistory();
-
-  const maskInputs = {
-    cpf(value) {
-      return value
-        .replace(/\D/g, "")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1-$2")
-        .replace(/(-\d{2})(\d)/, "$1");
-    },
-    celular(value) {
-      return value
-        .replace(/\D/g, "")
-        .replace(/(\d{2})(\d)/, "($1) $2")
-        .replace(/(\d{5})(\d)/, "$1-$2")
-        .replace(/(-\d{4})(\d)/, "$1");
-    },
-    cep(value) {
-      return value
-        .replace(/\D/g, "")
-        .replace(/(\d{5})(\d)/, "$1-$2")
-        .replace(/(-\d{3})(\d)/, "$1");
-    },
-    telefone(value) {
-      return value
-        .replace(/\D/g, "")
-        .replace(/(\d{4})(\d)/, "$1-$2")
-        .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
-        .replace(/(-\d{4})(\d)/, "$1");
-    },
-    dataNas(value) {
-      return value
-        .replace(/\D/g, "")
-        .replace(/(\d{2})(\d)/, "$1/$2")
-        .replace(/(\d{2})(\d)/, "$1/$2")
-        .replace(/(\d{4})(\d)/, "$1");
-    },
-  };
-
-  const handleChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: maskInputs[e.target.name]
-        ? maskInputs[e.target.name](e.target.value)
-        : e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    let error = {};
-
-    const fields = [
-      "nome",
-      "dataNas",
-      "cpf",
-      "celular",
-      "telefone",
-      "cep",
-      "complemente",
-      "logradouro",
-      "bairro",
-      "estado",
-      "numero",
-      "cidade",
-    ];
-
-    for (let u in fields) {
-      if (user[fields[u]] === "" ||  user[fields[u]] === undefined ) {
-        error[fields[u]] = fields[u];
-      }
-    }
-    setError(error);
-  };
-
-  useEffect(() => {
-    async function cepUser() {
-      if (user.cep.replace("-", "").length === 8) {
-        const cepData = await axios.get(
-          `https://viacep.com.br/ws/${user.cep}/json`
-        );
-        const response = await cepData.data;
-        setUser({
-          ...user,
-          complemente: response?.complemente,
-          bairro: response?.bairro,
-          logradouro: response?.logradouro,
-          estado: response?.uf,
-          cidade: response?.localidade,
-          cep: user.cep,
-        });
-      }
-
- 
-
-      if (user.cep === "") {
-        setUser({
-          ...user,
-          complemente: "",
-          bairro: "",
-          logradouro: "",
-          estado: "",
-          cidade: "",
-          cep: "",
-        });
-      }
-    }
-
-    cepUser();
-  }, [user.cep]);
-
-  console.log(error);
-
+  const [handleSubmit, handleChange, error, fieldsMatch, user] = useForm()
+  
   return (
     <div className="page-form">
       <div className="container-form">
+        <div className="field-match">
+             <p>{fieldsMatch.dataNas}</p>
+             <p>{fieldsMatch.telefone}</p> 
+             <p>{fieldsMatch.celular}</p>
+             <p>{fieldsMatch.cep}</p> 
+             <p>{fieldsMatch.cpf}</p>
+
+        </div>
+        
         <form onSubmit={handleSubmit}>
           <h2>Seus Dados</h2>
 
@@ -161,7 +42,7 @@ function FormRegisterUser() {
               <input
                 name="dataNas"
                 placeholder="20/03/1995"
-                className={`input-medium ${error.dataNas && "error-input"}`}
+                className={`input-medium ${error.dataNas    && "error-input"}`}
                 value={user.dataNas || ""}
                 onChange={handleChange}
               />
