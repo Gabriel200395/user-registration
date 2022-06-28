@@ -1,16 +1,10 @@
-import { useEffect, useState} from "react";
-import {useHistory} from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Service from "../../../service/service";
-import {
-  fieldUser,
-  fields,
-  maskInputs,
-  matchesRgx,
-  errorField,
-} from "../../../utils/ObjFields";
+import { fields, maskInputs } from "../../../utils/ObjFields";
 
- function UserRegisterForm() {
+function UserRegisterForm() {
   const [user, setUser] = useState({
     nome: "",
     dataNas: "",
@@ -26,12 +20,9 @@ import {
     cidade: "",
   });
 
-  const [error, setError] = useState({});
-  const [fieldsMatch, setFieldsMatch] = useState({});
+  const [error, setError] = useState({}); 
   const history = useHistory();
- 
 
-  
   useEffect(() => {
     async function cepUser() {
       if (user.cep.replace("-", "").length === 8) {
@@ -66,8 +57,6 @@ import {
     cepUser();
   }, [user.cep]);
 
-
-
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -81,7 +70,6 @@ import {
     e.preventDefault();
 
     let error = {};
-    let obj = {};
 
     for (let u in fields) {
       if (user[fields[u]] === "" || user[fields[u]] === undefined) {
@@ -89,28 +77,68 @@ import {
       }
     }
 
-    for (let field in fieldUser) {
-      if (
-        user[fieldUser[field]].length > 0 &&
-        !matchesRgx[fieldUser[field]].test(user[fieldUser[field]])
-      ) {
-        obj[fieldUser[field]] = errorField[fieldUser[field]];
-      }
-    }
+    const validations = {
+      cep(value) {
+        if (value.replace(/[-]/g, "").length !== 8) {
+          return {
+            error: "cep invalido",
+          };
+        }
+      },
+      cpf(value) {
+        if (value.replace(/[.-]/g, "").length !== 11) {
+          return {
+            error: "cpf invalido",
+          };
+        }
+      },
+      celular(value) {
+        if (value.replace(/[\(\s-\)]/g, "").length !== 11) {
+          return {
+            error: "error celular",
+          };
+        }
+      },
+      telefone(value) {
+        if (
+          value.replace(/[-]/g, "").length !== 8 &&
+          value.replace(/[-]/g, "").length !== 9
+        ) {
+          return {
+            error: "error celular",
+          };
+        }
+      },
+      dataNas(value) {
+        if (
+          value.replace(/[\/]/g, "").length !== 6 &&
+          value.replace(/[\/]/g, "").length !== 8
+        ) {
+          return {
+            error: "error dataNas",
+          };
+        }
+      },
+    };
 
-    if (Object.keys(obj).length == 0 && Object.keys(error).length == 0) {
-      await Service.post("users/", user);
-      history.push("/usuarios");
+    for(let i in fields){
+      if(validations[fields[i]]){
+        if(validations[fields[i]](user[fields[i]])?.error){
+         error[fields[i]] = validations[fields[i]](user[fields[i]]).error 
+        }
+      }
+    } 
+    
+    if (Object.keys(error).length == 0) {
+       await Service.post("users/", user);
+      history.push("/usuarios"); 
     } else {
-      setFieldsMatch(obj);
       setError(error);
     }
   };
 
 
-  return [handleSubmit, handleChange, error, fieldsMatch, user];
- 
-} 
+  return [handleSubmit, handleChange, error, user];
+}
 
-export default UserRegisterForm
-
+export default UserRegisterForm;

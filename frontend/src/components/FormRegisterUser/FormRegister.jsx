@@ -5,24 +5,15 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import Service from "../../service/service";
 import "./styles.css";
-import useForm from "./userForm/UserRegisterForm.jsx"
+import useForm from "./userForm/userRegisterForm.js"
 
 function FormRegisterUser() {
 
-  const [handleSubmit, handleChange, error, fieldsMatch, user] = useForm()
+  const [handleSubmit, handleChange, error, user] = useForm()
   
   return (
     <div className="page-form">
       <div className="container-form">
-        <div className="field-match">
-             <p>{fieldsMatch.dataNas}</p>
-             <p>{fieldsMatch.telefone}</p> 
-             <p>{fieldsMatch.celular}</p>
-             <p>{fieldsMatch.cep}</p> 
-             <p>{fieldsMatch.cpf}</p>
-
-        </div>
-        
         <form onSubmit={handleSubmit}>
           <h2>Seus Dados</h2>
 
