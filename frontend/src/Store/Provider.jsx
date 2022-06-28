@@ -137,7 +137,6 @@ const StoreProvider = ({ children }) => {
         const response = await cepData.data;
         setUser({
           ...user,
-          complemente: response?.complemente,
           bairro: response?.bairro,
           logradouro: response?.logradouro,
           estado: response?.uf,
