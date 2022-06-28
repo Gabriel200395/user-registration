@@ -20,7 +20,7 @@ function UserRegisterForm() {
     cidade: "",
   });
 
-  const [error, setError] = useState({}); 
+  const [error, setError] = useState({});
   const history = useHistory();
 
   useEffect(() => {
@@ -75,24 +75,20 @@ function UserRegisterForm() {
       if (user[fields[u]] === "" || user[fields[u]] === undefined) {
         error[fields[u]] = fields[u];
       }
-    }
-
-    for(let i in fields){
-      if(validations[fields[i]]){
-        if(validations[fields[i]](user[fields[i]])?.error){
-         error[fields[i]] = validations[fields[i]](user[fields[i]]).error 
+      if (validations[fields[u]]) {
+        if (validations[fields[u]](user[fields[u]])?.error) {
+          error[fields[u]] = validations[fields[u]](user[fields[u]]).error;
         }
       }
-    } 
-    
+    }
+
     if (Object.keys(error).length == 0) {
-       await Service.post("users/", user);
-      history.push("/usuarios"); 
+      await Service.post("users/", user);
+      history.push("/usuarios");
     } else {
       setError(error);
     }
   };
-
 
   return [handleSubmit, handleChange, error, user];
 }
