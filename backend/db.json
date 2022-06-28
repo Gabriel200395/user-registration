@@ -44,51 +44,6 @@
       "numero": "1",
       "cidade": "Brasília",
       "id": 3
-    },
-    {
-      "nome": "Gabriel Souza",
-      "dataNas": "20/03/96",
-      "cpf": "051.503.831-80",
-      "celular": "(11) 11111-1111",
-      "telefone": "98457-2207",
-      "cep": "72343-006",
-      "complemente": "portão preto",
-      "logradouro": "QR 211 Conjunto 6",
-      "bairro": "Samambaia Norte (Samambaia)",
-      "estado": "DF",
-      "numero": "06",
-      "cidade": "Brasília",
-      "id": 4
-    },
-    {
-      "nome": "Gabriel Souza",
-      "dataNas": "20/03/96",
-      "cpf": "051.503.831-80",
-      "celular": "(11) 11111-1111",
-      "telefone": "98457-2207",
-      "cep": "72343-006",
-      "complemente": "portão preto",
-      "logradouro": "QR 211 Conjunto 6",
-      "bairro": "Samambaia Norte (Samambaia)",
-      "estado": "DF",
-      "numero": "10",
-      "cidade": "Brasília",
-      "id": 5
-    },
-    {
-      "nome": "Gabriel Souza",
-      "dataNas": "20/03/96",
-      "cpf": "111.111.111-11",
-      "celular": "(11) 11111-1111",
-      "telefone": "98457-2207",
-      "cep": "72343-006",
-      "complemente": "1111",
-      "logradouro": "QR 211 Conjunto 6",
-      "bairro": "Samambaia Norte (Samambaia)",
-      "estado": "DF",
-      "numero": "1111",
-      "cidade": "Brasília",
-      "id": 6
     }
   ]
 }

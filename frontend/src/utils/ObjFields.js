@@ -36,8 +36,6 @@ const maskInputs = {
   },
 };
 
-
-
 const validations = {
   cep(value) {
     if (value.replace(/[-]/g, "").length !== 8) {
@@ -81,7 +79,6 @@ const validations = {
     }
   },
 };
-
 
 const fields = [
   "nome",
