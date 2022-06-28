@@ -8,7 +8,9 @@ function FormRegisterUser() {
 
   const fieldsGroup = [
     [
+
       {
+        titulo: "Seus Dados", 
         label: "Nome",
         value: user.nome,
         name: "nome",
@@ -50,6 +52,7 @@ function FormRegisterUser() {
 
     [
       {
+        titulo: "Endereço",
         label: "Cep",
         value: user.cep,
         name: "cep",
@@ -111,25 +114,25 @@ function FormRegisterUser() {
     <div className="page-form">
       <div className="container-form">
         <form onSubmit={handleSubmit}>
-          <h2>Seus Dados</h2>
           {
             <>
               {fieldsGroup.map((field, index) => (
-                <div className="group-input" key={index}>
-                  {field.map((i, index) => (
-                    
-                    <div className="container-input" key={index}>
-                      <label>{i.label}</label>
-                      <input
-                        name={i.name}
-                        placeholder={i.placeholder}
-                        className={i.className}
-                        value={i.value || ""}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    
-                  ))}
+                <div key={index}>
+                  {field.map((i, index) =>  <h2 key={index}>{i.titulo}</h2>)}
+                  <div className="group-input" key={index}>
+                    {field.map((i, index) => (
+                      <div className="container-input" key={index}>
+                        <label>{i.label}</label>
+                        <input
+                          name={i.name}
+                          placeholder={i.placeholder}
+                          className={i.className}
+                          value={i.value || ""}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </>
