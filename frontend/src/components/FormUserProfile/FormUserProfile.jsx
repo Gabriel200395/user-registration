@@ -1,7 +1,7 @@
 import React from "react";
 import { Link} from "react-router-dom";
 import "./styles.css";
-import UseProfile from "./useProfile/useProfile.js";
+import UseProfile from "./UseProfile/useProfile";
 function FormUserProfile() {
    
   const [fieldsGroup] = UseProfile()
