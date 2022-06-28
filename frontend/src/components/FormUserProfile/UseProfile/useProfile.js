@@ -4,7 +4,12 @@ import StoreContext from "Store/Context";
 import Service from "../../../service/service";
 
 function UseProfile() {
-  const { setUser, fieldsGroup, user } = useContext(StoreContext);
+  const { setUser, fieldsGroup, user, setError } = useContext(StoreContext);
+  
+  useEffect(() => {
+    setError({})
+  },[])
+  
   const { id } = useParams();
 
 
