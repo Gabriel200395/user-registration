@@ -12,7 +12,7 @@
 - Entrar na pasta do projeto: `cd backend`
 - Iniciar a aplicação: `json-server --watch db.json --port 3004`
 - baixe na aplicação:  `npm install -g json-server` 
-- Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3004/users](http://localhost:3004/users)).
+- Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3004\users](http://localhost:3004/users)).
 
 ## :pencil: Autor
 
