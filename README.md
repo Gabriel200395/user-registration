@@ -1,3 +1,22 @@
+<h1 align="center">App de Pesquisa Bancaria</h1>  
+
+<h4 align="center">
+  <img src="./public/projeto.gif"/><br>
+</h4>
+
+<p align="center">
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pencil-autor">Autor</a>
+</p>
+
+## :wrench: Tecnologias
+
+<!--EXEMPLO:-->
+- [React](https://pt-br.reactjs.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Typescript](https://www.typescriptlang.org/) 
+- [React-library](https://testing-library.com/docs/react-testing-library/api/)
 
 - Clone o projeto: `git clone https://github.com/Gabriel200395/desafio_frontend.git`
 
