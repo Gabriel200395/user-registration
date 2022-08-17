@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import StoreContext from "Store/Context";
 import { useHistory, useParams } from "react-router-dom";
-import Service from "../../../service/service";
+import axios from "axios"
 import { fields, validations } from "../../../utils/ObjFields";
 
 function UserEditForm() {
@@ -32,7 +32,7 @@ function UserEditForm() {
     }
 
     if (Object.keys(error).length == 0) {
-      await Service.put(`users/${id}`, user);
+      await axios.put(`users/${id}`, user);
       history.push("/usuarios");
     } else {
       setError(error);
@@ -42,7 +42,7 @@ function UserEditForm() {
   useEffect(() => {
     async function reqUser() {
       try {
-        const userData = await Service.get("users/" + id);
+        const userData = await axios.get("users/" + id);
         const response = await userData.data;
         setUser({ ...user, ...response });
       } catch (error) {

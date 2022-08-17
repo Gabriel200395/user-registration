@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {useHistory} from "react-router-dom"
-import Service from "../../../service/service";
+import axios from "axios";
 
 function UseSearchUser() {
   const history = useHistory();
@@ -14,7 +14,7 @@ function UseSearchUser() {
   useEffect(() => {
     async function req() {
       try {
-        const usersData = await Service("users");
+        const usersData = await axios("users");
         const response = await usersData.data;
         setSearchUsers(response);
         setUsers(response);
@@ -54,7 +54,7 @@ function UseSearchUser() {
   };
 
   const remover = async () => {
-    await Service.delete("users/" + userId);
+    await axios.delete("users/" + userId);
     const removeIdUser = searchusers.filter((user) => user.id !== userId);
     setSearchUsers(removeIdUser);
     setUsers(removeIdUser);

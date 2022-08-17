@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import {useParams} from "react-router-dom"
 import StoreContext from "Store/Context";
-import Service from "../../../service/service";
+import axios from "axios";
 
 function UseProfile() {
   const { setUser, fieldsGroup, user, setError } = useContext(StoreContext);
@@ -16,7 +16,7 @@ function UseProfile() {
   useEffect(() => {
     async function reqUser() {
       try {
-        const userData = await Service.get("users/" + id);
+        const userData = await axios.get("users/" + id);
         const response = await userData.data;
         setUser({ ...user, ...response });
       } catch (error) {

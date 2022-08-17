@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Service from "../../../service/service";
+import axios from "axios";
 import { fields, validations } from "../../../utils/ObjFields";
 import StoreContext from "Store/Context";
 
 function UserRegisterForm() {
   const { user, setError, handleChange, fieldsGroup, setUser } =
     useContext(StoreContext);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function UserRegisterForm() {
     }
 
     if (Object.keys(error).length == 0) {
-      await Service.post("users/", user);
+      await axios.post("users/", user);
       history.push("/usuarios");
     } else {
       setError(error);
