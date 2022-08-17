@@ -1,11 +1,9 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import UseProfile from "./UseProfile/useProfile";
 function FormUserProfile() {
-   
-  const [fieldsGroup] = UseProfile()
-
+  const [fieldsGroup] = UseProfile();
 
   return (
     <div className="page-form">
@@ -15,15 +13,14 @@ function FormUserProfile() {
             <>
               {fieldsGroup.map((field, index) => (
                 <div key={index}>
-                  {field.map((i, index) =>  <h2 key={index}>{i.titulo}</h2>)}
+                  {field.map((i, index) => (
+                    <h2 key={index}>{i.titulo}</h2>
+                  ))}
                   <div className="group-input" key={index}>
                     {field.map((i, index) => (
                       <div className="container-input" key={index}>
                         <label>{i.label}</label>
-                        <input
-                          className={i.className}
-                          defaultValue={i.value}
-                        />
+                        <input className={i.className} defaultValue={i.value} />
                       </div>
                     ))}
                   </div>

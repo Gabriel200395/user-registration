@@ -1,19 +1,15 @@
 import { useEffect, useContext } from "react";
 import StoreContext from "Store/Context";
 import { useHistory, useParams } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import { fields, validations } from "../../../utils/ObjFields";
+import UseHook from "../../../helpers/useHook";
 
 function UserEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
-  const { user, setError, handleChange, fieldsGroup, setUser } =
-    useContext(StoreContext);
-
-  useEffect(() => {
-    setError({});
-  }, []);
+  const [user, setError, handleChange, fieldsGroup, setUser] = UseHook();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +28,7 @@ function UserEditForm() {
     }
 
     if (Object.keys(error).length == 0) {
-      await axios.put(`users/${id}`, user);
+      await axios.put(`http://localhost:3004/users/${id}`, user);
       history.push("/usuarios");
     } else {
       setError(error);
@@ -42,7 +38,7 @@ function UserEditForm() {
   useEffect(() => {
     async function reqUser() {
       try {
-        const userData = await axios.get("users/" + id);
+        const userData = await axios.get("http://localhost:3004/users/" + id);
         const response = await userData.data;
         setUser({ ...user, ...response });
       } catch (error) {

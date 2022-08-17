@@ -1,32 +1,12 @@
-import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { fields, validations } from "../../../utils/ObjFields";
-import StoreContext from "Store/Context";
+import UseHook from "../../../helpers/useHook";
 
 function UserRegisterForm() {
-  const { user, setError, handleChange, fieldsGroup, setUser } =
-    useContext(StoreContext);
+  const [user, setError, handleChange, fieldsGroup] = UseHook();
 
   const history = useHistory();
-
-  useEffect(() => {
-    setError({});
-    setUser({
-      nome: "",
-      dataNas: "",
-      cpf: "",
-      celular: "",
-      telefone: "",
-      cep: "",
-      complemente: "",
-      logradouro: "",
-      bairro: "",
-      estado: "",
-      numero: "",
-      cidade: "",
-    });
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +25,7 @@ function UserRegisterForm() {
     }
 
     if (Object.keys(error).length == 0) {
-      await axios.post("users/", user);
+      await axios.post("http://localhost:3004/users/", user);
       history.push("/usuarios");
     } else {
       setError(error);

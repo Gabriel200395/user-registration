@@ -1,22 +1,18 @@
-import { useContext, useEffect } from "react";
-import {useParams} from "react-router-dom"
-import StoreContext from "Store/Context";
+import { useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import UseHook from "../../../helpers/useHook";
 
-function UseProfile() {
-  const { setUser, fieldsGroup, user, setError } = useContext(StoreContext);
+function UseProfile() { 
   
-  useEffect(() => {
-    setError({})
-  },[])
-  
+  const [user, setError, handleChange, fieldsGroup, setUser] = UseHook();  
+
   const { id } = useParams();
 
-
-  useEffect(() => {
+   useEffect(() => {
     async function reqUser() {
       try {
-        const userData = await axios.get("users/" + id);
+        const userData = await axios.get("http://localhost:3004/users/" + id);
         const response = await userData.data;
         setUser({ ...user, ...response });
       } catch (error) {
@@ -24,7 +20,7 @@ function UseProfile() {
       }
     }
     reqUser();
-  }, [id]);
+  }, [id]); 
 
   return [fieldsGroup];
 }

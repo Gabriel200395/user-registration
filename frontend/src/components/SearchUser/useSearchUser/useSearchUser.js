@@ -14,7 +14,7 @@ function UseSearchUser() {
   useEffect(() => {
     async function req() {
       try {
-        const usersData = await axios("users");
+        const usersData = await axios.get("http://localhost:3004/users");
         const response = await usersData.data;
         setSearchUsers(response);
         setUsers(response);
