@@ -1,7 +1,7 @@
 <h1 align="center">App de Pesquisa Bancaria</h1>  
 
 <h4 align="center">
-  <img src="./public/projeto.gif"/><br>
+  <img src="./frotend/public/projeto.gif"/><br>
 </h4>
 
 - Clone o projeto: `git clone https://github.com/Gabriel200395/desafio_frontend.git`
