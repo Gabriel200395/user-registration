@@ -28,7 +28,6 @@ function UseSearchUser() {
 
   useEffect(() => {
     if (searchusers.length == 8 || searchusers.length > 8) {
-      console.log("caiu");
       setScroll(true);
     }
   }, [searchusers]);

@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { fields, validations } from "../../../utils/ObjFields";
 import UseHook from "../../../helpers/useHook";
+import validationsFields from "../../../utils/validationsFields";
 
 function UserEditForm() {
   const history = useHistory();
@@ -14,18 +15,7 @@ function UserEditForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let error = {};
-
-    for (let u in fields) {
-      if (user[fields[u]] === "" || user[fields[u]] === undefined) {
-        error[fields[u]] = fields[u];
-      }
-      if (validations[fields[u]]) {
-        if (validations[fields[u]](user[fields[u]])?.error) {
-          error[fields[u]] = validations[fields[u]](user[fields[u]]).error;
-        }
-      }
-    }
+    const error = validationsFields(user);
 
     if (Object.keys(error).length == 0) {
       await axios.put(`http://localhost:3004/users/${id}`, user);
