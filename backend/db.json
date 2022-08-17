@@ -1,34 +1,19 @@
 {
   "users": [
     {
-      "nome": "Gabriel Souza",
-      "dataNas": "20/03/96",
-      "cpf": "051.503.831-80",
+      "nome": "Gabriel",
+      "dataNas": "20/03/1995",
+      "cpf": "000.000.000-00",
       "celular": "(11) 11111-1111",
-      "telefone": "98457-2207",
-      "cep": "72343-006",
+      "telefone": "0000-0000",
+      "cep": "72341-402",
       "complemente": "portão preto",
-      "logradouro": "QR 211 Conjunto 6",
+      "logradouro": "QR 209 Conjunto 2",
       "bairro": "Samambaia Norte (Samambaia)",
       "estado": "DF",
-      "numero": "06",
+      "numero": "12",
       "cidade": "Brasília",
-      "id": 4
-    },
-    {
-      "nome": "Junior",
-      "dataNas": "20/03/96",
-      "cpf": "051.503.831-80",
-      "celular": "(11) 11111-1111",
-      "telefone": "98457-2207",
-      "cep": "88330-801",
-      "complemente": "portão preto",
-      "logradouro": "Rua 1451",
-      "bairro": "Centro",
-      "estado": "SC",
-      "numero": "11",
-      "cidade": "Balneário Camboriú",
-      "id": 5
+      "id": 6
     }
   ]
 }
