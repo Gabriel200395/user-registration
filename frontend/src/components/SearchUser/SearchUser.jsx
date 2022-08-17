@@ -4,11 +4,11 @@ import "./styles.css";
 
 function SearchUser() {
   const [
-    removeUser,
-    remover,
+    deleteUser,
+    deleteNot,
+    deleteUserId,
     handleChange,
     searchusers,
-    setIndexId,
     edit,
     userProfile,
     indexId,
@@ -38,20 +38,20 @@ function SearchUser() {
                     <div className="modal">
                       <p>Deseja Excluir?</p>
                       <div className="buttons-modal">
-                        <button className="button-action" onClick={remover}>
-                          Sim
-                        </button>
                         <button
                           className="button-action"
-                          onClick={() => setIndexId(null)}
+                          onClick={deleteUserId}
                         >
+                          Sim
+                        </button>
+                        <button className="button-action" onClick={deleteNot}>
                           Não
                         </button>
                       </div>
                     </div>
                   )}
 
-                  <button onClick={() => removeUser(user.id)}>
+                  <button onClick={() => deleteUser(user.id)}>
                     <i className="fa fa-trash" aria-hidden="true"></i>
                   </button>
 
