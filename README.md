@@ -4,6 +4,12 @@
 
 - Clone o projeto: `git clone https://github.com/Gabriel200395/desafio_frontend.git`
 
+## :wrench: Tecnologias
+<!--EXEMPLO:-->
+- [React](https://pt-br.reactjs.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Regex](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions)
+
 ## 💻 Frontend
 - Entrar na pasta do projeto: `cd frontend`
 - usuario(admin) senha(admin)
