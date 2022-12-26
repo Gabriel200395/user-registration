@@ -24,9 +24,11 @@ No projeto tentei utilizar boas práticas de desenvolvimento, como separação d
 
 - [React](https://pt-br.reactjs.org/)
 - [Axios](https://www.npmjs.com/package/axios)
-- [Regex](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions)
+- [Regex](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions) 
 
-## 💻 Frontend
+## 💻 Como usar
+
+Frontend
 
 - Clone o projeto: `git clone https://github.com/Gabriel200395/desafio_frontend.git`
 - Entrar na pasta do projeto: `cd frontend`
@@ -35,12 +37,16 @@ No projeto tentei utilizar boas práticas de desenvolvimento, como separação d
 - baixe na aplicação: `yarn`
 - Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3000\login](http://localhost:3000\login)).
 
-## 💻 Backend
+Backend
 
 - Entrar na pasta do projeto: `cd backend`
 - Iniciar a aplicação: `json-server --watch db.json --port 3004`
 - baixe na aplicação: `npm install -g json-server`
 - Irá abrir uma página no browser (se não abrir, vá até [http://localhost:3004\users](http://localhost:3004/users)).
+
+
+## :heart_eyes: Features
+
 
 <h3 align="left">Tela de Login 😍.</h3>
 <h4 align="left">
