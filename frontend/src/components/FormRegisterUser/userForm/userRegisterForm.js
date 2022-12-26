@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { fields, validations } from "../../../utils/ObjFields";
 import UseHook from "../../../helpers/useHook";
 import validationsFields from "utils/validationsFields";
 
