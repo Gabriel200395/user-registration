@@ -44,27 +44,27 @@ No projeto tentei utilizar boas práticas de desenvolvimento, como separação d
 
 <h3 align="left">Tela de Login 😍.</h3>
 <h4 align="left">
-  <img src="./public/login.png" /><br>
+  <img src="./frontend/public/login.png" /><br>
 </h4>
 
 <h3 align="left">Tela inicial 😍.</h3>
 <h4 align="left">
-  <img src="./public/tela_inicial.png" /><br>
+  <img src="./frontend/public/tela_inicial.png" /><br>
 </h4>
 
 <h3 align="left">Buscar usuário 😎.</h3>
 <h4 align="left">
-  <img src="./public/filtro.png" /><br>
+  <img src="./frontend/public/filtro.png" /><br>
 </h4>
 
 <h3 align="left">Remover usuário 👀.</h3>
 <h4 align="left">
-  <img src="./public/remover.png" /><br>
+  <img src="./frontend/public/remover.png" /><br>
 </h4>
 
 <h3 align="left">UseHook ❤.</h3>
 <h4 align="left">
-  <img src="./public/useHook.png" /><br>
+  <img src="./frontend/public/useHook.png" /><br>
 </h4>
 
 ## :pencil: Autor
