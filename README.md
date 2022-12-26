@@ -66,6 +66,11 @@ Backend
 <h3 align="left">Remover usuário 👀.</h3>
 <h4 align="left">
   <img src="./frontend/public/remover.png" /><br>
+</h4> 
+
+<h3 align="left">Validando Campos 😎.</h3>
+<h4 align="left">
+  <img src="./frontend/public/validando_campos.png" /><br>
 </h4>
 
 <h3 align="left">UseHook ❤.</h3>
