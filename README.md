@@ -4,7 +4,7 @@
 
 ## :page_facing_up: Sobre
 
-"Projeto que desenvolvi com o objetivo de melhorar minhas habilidades e conhecimentos tanto em ReactJS quanto em programação Web em geral. O projeto é baseado e um sistema de cadastro de usuários.
+Projeto que desenvolvi com o objetivo de melhorar minhas habilidades e conhecimentos tanto em ReactJS quanto em programação Web em geral. O projeto é baseado e um sistema de cadastro de usuários.
 
 Na página inicial tem as informações sobre os usuários cadastrado no sistema e um filtro para pesquisa sobre o usuário cadastrado, com isso existem outras funcionalidades de editar e remover usuário. 
 
